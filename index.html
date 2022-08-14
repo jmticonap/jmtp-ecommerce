@@ -46,7 +46,7 @@
     -->
 
   <!-- ========== Preloader ========== -->
-  <section id="preloader" class="preloader fadeout">
+  <section id="preloader" class="preloader fadeout" style="display: none;">
     <svg class="preloader-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
       <title>Academlo Logo</title>
       <g>
@@ -63,9 +63,9 @@
   </section>
 
   <header>
-    <nav>
-      <a href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
+    <nav class="nav">
+      <a class="nav-icon" href="#">
+        <svg class="nav-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
           <title>Academlo Logo</title>
           <g>
             <g>
@@ -76,24 +76,50 @@
           </g>
         </svg>STORE
       </a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+      </ul>
+      <div class="nav-btns">
+          <i class="bx bx-moon change-theme" id="theme-button"></i>
+  
+          <div class="nav__shop" id="btn-cart-shop">
+            <i class="bx bx-shopping-bag"></i>
+            <span id="cart-count" class="count">0</span>
+          </div>
+  
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-grid-alt"></i>
+          </div>
+      </div>
     </nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Products</a></li>
-    </ul>
-    <div class="nav-btns">
-        <i class="bx bx-moon change-theme" id="theme-button"></i>
-
-        <div class="nav__shop" id="cart-shop">
-          <i class="bx bx-shopping-bag"></i>
-          <span id="cart-count" class="count">0</span>
-        </div>
-
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="bx bx-grid-alt"></i>
-        </div>
-    </div>
   </header>
+
+  <!-- SHOP -->
+  <section id="shop" class="shop">
+    <i class="bx bx-x cart__close" id="cart-close"></i>
+    <h2 class="shop-title">My Cart</h2>
+    <div  id = "shop-container" class="shop-container">
+      <div class="empty-cart">
+        <img src="./assets/images/empty-cart.png" alt="">
+        <h2 class="shop-title">Your cart is empty</h2>
+        <p>You can add items to your cart by clicking on the "" button on the product page.</p>
+      </div>
+    </div>
+    <div class="shop-resume">
+      <p class="shop-resume__items">
+        <span class="shop-resume__number">0</span>
+        Items
+      </p>
+      <h3 class="shop-resume__total">S/ 0.00</h3>
+    </div>
+    <div class="shop__btn-container">
+      <button class="shop__btn">
+        <i class="bx bxs-check-shield"></i>
+        Checkout
+      </button>
+    </div>
+  </section>
 
   <script src="./assets/js/main.js" type="module"></script>
 </body>
