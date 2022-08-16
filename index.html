@@ -81,16 +81,16 @@
         <li><a href="#">Products</a></li>
       </ul>
       <div class="nav-btns">
-          <i class="bx bx-moon change-theme" id="theme-button"></i>
-  
-          <div class="nav__shop" id="btn-cart-shop">
-            <i class="bx bx-shopping-bag"></i>
-            <span id="cart-count" class="count">0</span>
-          </div>
-  
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="bx bx-grid-alt"></i>
-          </div>
+        <i class="bx bx-moon change-theme" id="theme-button"></i>
+
+        <div class="nav__shop" id="btn-cart-shop">
+          <i class="bx bx-shopping-bag"></i>
+          <span id="cart-count" class="count">0</span>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-grid-alt"></i>
+        </div>
       </div>
     </nav>
   </header>
@@ -99,7 +99,7 @@
   <section id="shop" class="shop">
     <i class="bx bx-x cart__close" id="cart-close"></i>
     <h2 class="shop-title">My Cart</h2>
-    <div  id = "shop-container" class="shop-container">
+    <div id="shop-container" class="shop-container">
       <div class="empty-cart">
         <img src="./assets/images/empty-cart.png" alt="">
         <h2 class="shop-title">Your cart is empty</h2>
@@ -120,6 +120,60 @@
       </button>
     </div>
   </section>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <article class="coverpage">
+
+      <div class="coverpage__img">
+        <img src="./assets/images/home.png" alt="">
+      </div>
+
+      <div class="coverpage__left">
+        <h1 class="coverpage_title">New Sweatshirt <br>COLLECTIONS 2022</h1>
+        <p>
+          Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern
+          design.
+        </p>
+        <span class="home__price">S/ 14.00</span>
+        <div class="coverpage__btns">
+          <a href="#" class="button button--gray button--small">
+            Discover
+          </a>
+          <button class="button">ADD TO CART</button>
+        </div>
+      </div>
+
+    </article>
+
+    <article class="article-list">
+
+      <div class="article-selector">
+        <ul class="article-selector__list">
+          <li name="cat-1" class="article-selector__item">
+            <h3 class="article-selector__item__title">Show All</h3>
+            <span class="article-selector__item__description">Show all products</span>
+          </li>
+          <li name="cat-2" class="article-selector__item">
+            <h3>Hoodies</h3>
+            <span>3 products</span><!-- Text Format: [3 products] -->
+          </li>
+          <li name="cat-3" class="article-selector__item">
+            <h3>Shirts</h3>
+            <span>4 products</span>
+          </li>
+          <li name="cat-4" class="article-selector__item">
+            <h3>Sweatshirts</h3>
+            <span>4 products</span>
+          </li>
+        </ul>
+      </div>
+      <div class="article-cards"></div>
+
+    </article>
+
+  </main>
 
   <script src="./assets/js/main.js" type="module"></script>
 </body>

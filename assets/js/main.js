@@ -1,5 +1,6 @@
 import { preloader } from './section/preloader.js'
 import { cart } from './section/cart.js'
+import { keycontroller } from './keycontroller.js'
 
 
 window.addEventListener('load', ()=>{
@@ -8,4 +9,5 @@ window.addEventListener('load', ()=>{
 
 document.addEventListener('DOMContentLoaded', () => {
     cart()
+    keycontroller()
 })
