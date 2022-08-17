@@ -41,17 +41,17 @@
 
 /*=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
-/*
-    --first-color: hsl(182, 53%, 74%);
-    --button-color: hsl(246, 16%, 12%);
-    --button-color-alt: hsl(0, 0%, 28%);
-    --card-color: hsla(246, 16%, 5%, .5);
-    --title-color: hsl(0, 0%, 95%);
-    --text-color: hsl(0, 0%, 75%);
-    --body-color: hsl(249, 19%, 14%);
-    --container-color: hsl(246, 16%, 12%);
-    --border-color: hsl(0, 0%, 20%);
-*/
+.dark_theme {
+  --first-color: hsl(182, 53%, 74%);
+  --button-color: hsl(246, 16%, 12%);
+  --button-color-alt: hsl(0, 0%, 28%);
+  --card-color: hsla(246, 16%, 5%, .5);
+  --title-color: hsl(0, 0%, 95%);
+  --text-color: hsl(0, 0%, 75%);
+  --body-color: hsl(249, 19%, 14%);
+  --container-color: hsl(246, 16%, 12%);
+  --border-color: hsl(0, 0%, 20%);
+}
 
 * {
   padding: 0;
@@ -62,6 +62,9 @@
 body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: 0.4s;
 }
 
 img {
@@ -175,13 +178,16 @@ header {
   font-size: 20px;
   position: relative;
   z-index: 10;
+  color: var(--text-color);
 }
 
 .nav__toggle {
   display: none;
 }
 
-.change-theme {}
+.change-theme {
+  
+}
 
 .nav__shop {
   position: relative;
@@ -268,22 +274,26 @@ header {
   font-size: 16px;
 
 }
-.cart__img{
+
+.cart__img {
   width: 100%;
-height: 60px;
-object-fit: cover;
+  height: 60px;
+  object-fit: cover;
 }
+
 .cart__box {
   background-color: var(--container-color);
   width: 65px;
   padding: .25rem .5rem;
   border: 1px solid var(--border-color);
 }
+
 .cart__card {
   display: flex;
   align-items: center;
   column-gap: 1rem;
 }
+
 .cart__amount-box {
   display: inline-flex;
   padding: .25rem;
@@ -291,15 +301,19 @@ object-fit: cover;
   border: 1px solid var(--border-color);
   cursor: pointer;
 }
+
 .cart__amount-trash {
   font-size: 1.15rem;
   color: var(--first-color);
   cursor: pointer;
 }
-.cart__amount, .cart__amount-content {
+
+.cart__amount,
+.cart__amount-content {
   display: flex;
   align-items: center;
 }
+
 .cart__amount {
   column-gap: 3rem;
 }
@@ -492,7 +506,7 @@ object-fit: cover;
   row-gap: .75rem;
 }
 
-.footer__social{
+.footer__social {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -525,7 +539,7 @@ object-fit: cover;
     column-gap: 3rem;
   }
 
-  .footer-container{
+  .footer-container {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -541,7 +555,7 @@ object-fit: cover;
     align-items: center;
   }
 
-  .footer-container{
+  .footer-container {
     grid-template-columns: repeat(4, auto);
   }
 }

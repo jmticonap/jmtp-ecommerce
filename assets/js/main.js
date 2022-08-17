@@ -2,6 +2,8 @@ import { preloader } from './section/preloader.js'
 import { cart, addItem } from './section/cart.js'
 import { keycontroller } from './keycontroller.js'
 import { products, loadProducts } from './section/products.js'
+import { theme } from './section/theme.js'
+import { navscroll } from './section/navscroll.js'
 
 
 window.addEventListener('load', ()=>{
@@ -9,10 +11,13 @@ window.addEventListener('load', ()=>{
 })
 
 document.addEventListener('DOMContentLoaded', () => {
+    navscroll()
+    theme()
     cart()
     keycontroller()
     products()
     //Cargando productos en el localstorage
     loadProducts()
-    addItem(1)
+
+    
 })
