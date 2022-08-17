@@ -1,7 +1,7 @@
 import { preloader } from './section/preloader.js'
-import { cart } from './section/cart.js'
+import { cart, addItem } from './section/cart.js'
 import { keycontroller } from './keycontroller.js'
-import { products } from './section/products.js'
+import { products, loadProducts } from './section/products.js'
 
 
 window.addEventListener('load', ()=>{
@@ -12,4 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cart()
     keycontroller()
     products()
+    //Cargando productos en el localstorage
+    loadProducts()
+    addItem(1)
 })
