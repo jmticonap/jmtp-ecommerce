@@ -29,7 +29,8 @@ export const db = {
 }
 
 export function products() {
-    const lst_products = loadProducts()
+    //Pasamos un callBack en el argumento [0]
+    const lst_products = loadProducts(arguments[0])
     if (!window.localStorage.getItem('products')) window.localStorage.setItem('products', [])
     const container = document.querySelector('#products__content')
     container.innerHTML = ''
@@ -72,21 +73,39 @@ export function filterControl() {
     const filter_list = document.querySelector('.article-selector__list')
     let filter_list_li = '';
     db.items
-    .reduce((a,b) => a.add(b.category), new Set())
-    .forEach(cat => {
-        filter_list_li += `
+        .reduce((a, b) => a.add(b.category), new Set())
+        .forEach(cat => {
+            filter_list_li += `
         <li filtername="${cat}" class="article-selector__item">
             <h3>${cat}</h3>
             <span>${db.methods.productsByCategory(cat)} products</span>
         </li>`
-    })
+        })
     filter_list.innerHTML += filter_list_li
+    filterProducts()
+}
+
+function filterProducts() {
+    const btns_list = document.querySelectorAll(".article-selector__list li")
+    btns_list[0].addEventListener('click', ()=>{
+        products()
+    })
+    btns_list.forEach((btn, i) => {
+        if (i > 0) {
+            btn.addEventListener('click', function(){
+                console.log(this.getAttribute('filtername'))
+                products({filterCallback: (itm)=> itm.category == this.getAttribute('filtername') })
+            })
+        }
+    })
 }
 
 function loadProducts() {
     let local_products = JSON.parse(window.localStorage.getItem("products"))
-    if (!local_products) {
-        window.localStorage.setItem("products", JSON.stringify(product_db))
-    }
-    return JSON.parse(window.localStorage.getItem("products"))
+    if (!local_products) window.localStorage.setItem("products", JSON.stringify(product_db))
+    
+    const result = JSON.parse(window.localStorage.getItem("products"))
+    //Si hay un objecto se busca la propiedad 'filterCallback' para filtrar
+    //los productos
+    return arguments[0]? result.filter(arguments[0]['filterCallback']):result
 }
