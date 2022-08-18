@@ -56,7 +56,7 @@ export const cartController = {
   }
 }
 
-export function renderCart () {
+export function renderCart() {
   const cartContainer = document.querySelector('#shop-container')
   const cartItems = cartController.methods.getAll()
   let html = ''
@@ -155,6 +155,7 @@ export function renderCart () {
     cartController.methods.purchase()
     renderCart()
   })
+
 
   window.localStorage.setItem('products', JSON.stringify(db.items))
   window.localStorage.setItem('cart', JSON.stringify(cartController.items))

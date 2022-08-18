@@ -101,6 +101,7 @@ h6 {
   width: 100vw;
   height: 100vh;
   background-color: var(--body-color);
+  z-index: 30;
 }
 
 .preloader-icon {
@@ -185,9 +186,7 @@ header {
   display: none;
 }
 
-.change-theme {
-  
-}
+.change-theme {}
 
 .nav__shop {
   position: relative;
@@ -272,7 +271,22 @@ header {
   padding: 1rem 2rem;
   color: var(--body-color);
   font-size: 16px;
+}
 
+.shop__btn:hover {
+  background-color: var(--first-color);
+  color: var(--body-color);
+}
+.shop__btn:disabled {
+  background-color: var(--card-color);
+  cursor: not-allowed;
+  opacity: .5;
+  color: var(--title-color);
+}
+
+.shop__btn:disabled:hover {
+  background-color: var(--card-color);
+  color: var(--title-color);
 }
 
 .cart__img {
@@ -457,8 +471,9 @@ header {
 }
 
 .products__img {
-  width: 150px;
   transition: .4s;
+  max-height: 150px;
+  object-fit: contain;
 }
 
 .products__price {

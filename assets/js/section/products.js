@@ -2,7 +2,7 @@ import { product_db } from '../data/products_db.js'
 import { cartController, renderCart } from './cartController.js'
 
 export const db = {
-    items: window.localStorage.getItem('products') ? JSON.parse(window.localStorage.getItem('products')) : items,
+    items: window.localStorage.getItem('products') ? JSON.parse(window.localStorage.getItem('products')) : product_db,
     methods: {
         find: (id) => {
             return db.items.find(item => item.id === id)
@@ -15,14 +15,25 @@ export const db = {
                 const product = db.methods.find(item.id)
                 product.quantity = product.quantity - item.quantity
             })
+        },
+        productsByCategory: (category) => {
+            return db.items
+                .filter(itm => itm.category == category).length
+        },
+        quantityByCategory: (category) => {
+            return db.items
+                .filter(itm => itm.category == category)
+                .reduce((a, b) => a + b.quantity, 0)
         }
     }
 }
 
 export function products() {
+    const lst_products = loadProducts()
+    if (!window.localStorage.getItem('products')) window.localStorage.setItem('products', [])
     const container = document.querySelector('#products__content')
     container.innerHTML = ''
-    product_db.forEach((itm, i) => {
+    lst_products.forEach((itm, i) => {
         const str_html = `
         <article class="products__card hoodies">
             <div class="products__shape">
@@ -31,7 +42,7 @@ export function products() {
 
             <div class="products__data">
                 <h2 class="products__price">${itm.price} <span class="products__quantity">| Stock: ${itm.quantity}</span></h2>
-                <h3 class="products__name">Hoodies</h3>
+                <h3 class="products__name">${itm.category}</h3>
 
                 <button class="button products__button" data-id="${i + 1}">
                 <i class="bx bx-plus"></i>
@@ -57,11 +68,25 @@ export function products() {
     })
 }
 
-export function loadProducts() {
-    let local_products = window.localStorage.getItem("products")
+export function filterControl() {
+    const filter_list = document.querySelector('.article-selector__list')
+    let filter_list_li = '';
+    db.items
+    .reduce((a,b) => a.add(b.category), new Set())
+    .forEach(cat => {
+        filter_list_li += `
+        <li filtername="${cat}" class="article-selector__item">
+            <h3>${cat}</h3>
+            <span>${db.methods.productsByCategory(cat)} products</span>
+        </li>`
+    })
+    filter_list.innerHTML += filter_list_li
+}
+
+function loadProducts() {
+    let local_products = JSON.parse(window.localStorage.getItem("products"))
     if (!local_products) {
         window.localStorage.setItem("products", JSON.stringify(product_db))
-        local_products = window.localStorage.getItem("products")
     }
-
+    return JSON.parse(window.localStorage.getItem("products"))
 }
