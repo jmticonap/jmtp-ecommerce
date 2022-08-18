@@ -1,9 +1,10 @@
 import { preloader } from './section/preloader.js'
+import { theme } from './section/theme.js'
+import { nav } from './section/nav.js'
+import { navscroll } from './section/navscroll.js'
 import { cart, addItem } from './section/cart.js'
 //import { keycontroller } from './keycontroller.js'
 import { products, filterControl } from './section/products.js'
-import { theme } from './section/theme.js'
-import { navscroll } from './section/navscroll.js'
 
 
 window.addEventListener('load', ()=>{
@@ -12,6 +13,7 @@ window.addEventListener('load', ()=>{
 
 document.addEventListener('DOMContentLoaded', () => {
     theme()
+    nav()
     navscroll()
     cart()
     //keycontroller()
